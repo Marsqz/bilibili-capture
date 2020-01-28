@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         B站视频截图工具 ctrl+shift+s
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  B站视频截图工具
+// @description  B站视频截图工具, 可截取视频和直播中的画面, 快捷键 ctrl+shift+s
 // @author       AHao
 // @include      https://www.bilibili.com/video*
 // @include      https://live.bilibili.com*
