@@ -1,7 +1,6 @@
 (function() {
   "use strict";
 
-  
   // 得到当前播放的video标签
   function getVideo() {
     return document.getElementsByTagName("video")[0];
@@ -42,7 +41,14 @@
     for (let i of sizeList)
       if (text.includes(i)) {
         console.log("图片质量", i);
-        return sizeMap[i];
+        let video = getVideo();
+        let { width, height } = video.getBoundingClientRect();
+        let r = height / width;
+        // 维持播放器的宽高比, 避免拉伸
+        // 保持宽度
+        let size = sizeMap[i];
+        size.height = size.width * r;
+        return size;
       }
 
     return sizeMap["480P"];
@@ -76,7 +82,7 @@
 
   function init() {
     document.addEventListener("keydown", e => {
-        // ctrl shift s
+      // ctrl shift s
       if (e.ctrlKey && e.shiftKey && e.keyCode === 83) {
         e.preventDefault();
         e.stopPropagation();
